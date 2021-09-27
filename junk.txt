@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>working</title>
+<script src="https://webbrain.com/webbraingwt/webbraingwt.nocache.js" type="text/javascript"></script>
+<script type="text/javascript"><!--/*--><![CDATA[/*><!--*/
+onWebBrainUiLoaded = function(){
+    showAjaxBrainPage({
+    "instantSearchPrefix":"https://webbrain.com/instantSearchServerJson/brain/C6015FA0-82BF-F1FA-9D05-0EA9FD7F845E/query/",
+    "plexHeight":0,
+    "wallpaperBaseUrl":"https://webbrain.com/",
+    "bgOutsideColor":"#000000",
+    "textCellColor":"#000000",
+    "highlightLineColor":"#03cb2c",
+    "thoughtSuffix":"/siblings/true/log/true",
+    "homeThought":2751,
+    "thought":2751,
+    "gateDefaultColor":"#00ade9",
+    "contentType":"frame",
+    "licenseKey":"2545241826050794",
+    "contentId":"wbContent",
+    "plexFontName":"sans-serif",
+    "thoughtPrefix":"https://webbrain.com/thoughtServerJson/brain/C6015FA0-82BF-F1FA-9D05-0EA9FD7F845E/thought/",
+    "pinSuffix":"",
+    "baseUrl":"https://webbrain.com/",
+    "thickenHighlightedLinks":false,
+    "isWallpaperTiled":false,
+    "pinPrefix":"https://webbrain.com/pinServerJson/brain/C6015FA0-82BF-F1FA-9D05-0EA9FD7F845E",
+    "isTagHintsOff":false,
+    "brain":"C6015FA0-82BF-F1F9D050EA9FD7F845E",
+    "isThoughtColorOnBackground":false,
+    "options":{
+      "list":[],
+      "defaultOptions":[
+        "wander\u003dfalse","showToolbar\u003dtrue",
+        "showWebBrainButton\u003dtrue",
+        "showSearch\u003dtrue",
+        "showPTL\u003dtrue",
+        "showPins\u003dtrue",
+        "contentFrame\u003dwbContent",
+        "textHeight\u003d15",
+        "alwaysShowSingleAttachment\u003dfalse",
+        "showContent\u003dtrue",
+        "iconClicks\u003dtrue"
+      ]},
+      "backColor":"#000000",
+      "dynamicInstantSearch":true,
+      "activeLineColor":"#ff5735",
+      "thoughtSizeIndex":1,
+      "textColor":"#ffffff",
+      "linkColor":"#0082a8",
+      "attachmentBaseUrl":"https://webbrain.com/",
+      "jsonTimeout":10000,"wallpaperFilename":"",
+      "highlightLinkColor":"#ffff80",
+      "access":{
+        "40004":false,
+        "100":false,
+        "40007":false,
+        "60004":false,
+        "40012":false,
+        "40008":false,
+        "60002":false,
+        "40011":false,
+        "60003":false,
+        "40010":false
+        },
+        "defaultCssPath":"/css/",
+        "embedded":false,
+        "scrollLineColor":"#0082a8",
+        "bgCenterColor":"#000000",
+        "sessionId":"caf9a51b9c8ba725566cc0219e6205e6",
+        "pageTitle":"working",
+        "gateMoreColor":"#03cb2c",
+        "enableFullSearch":false
+      }); }
+/*-->]]>*/</script>
+
+<meta content="IE=9; IE=8" http-equiv="X-UA-Compatible"/>
+<link href="/css/main-a.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+<table id="topBar" style="height: 25px; margin: 0px;">
+<tr style="position: relative; vertical-align: middle;">
+<td class="greyBar" style="height: 25px; width: 10px; vertical-align: top;">
+<a href="../../;jsessionid=D04049EFA0CC7BD0D6CC2DC5BBF10A6D" style="text-decoration: none;" target="_top">
+<img id="menuimage" src="/images/menubar_image_iphone.png" style="display: block;"/>
+</a>
+</td>
+<td class="greyBar" style="text-align: left; width: 50%; vertical-align: top;">
+<span class="title" style="line-height: 25px;">working</span>
+<input
+  alt="Brain Control"
+  id="braincontrol"
+  onclick='showBrainControlOptions({
+    "parentPage":"com.thebrain.webbrain.pages.clientsupport.BrainFullPage",
+    "controlOptions":0,
+    "ownerId":6943,
+    "userId":-1,
+    "owner":"patmck1",
+    "componentId":"",
+    "brainGuid":"C6015FA0-82BF-F1FA-9D05-0EA9FD7F845E"
+  })'
+  src="/images/showControl.png" type="image"
+/>
+</td>
+<td
+  class="greyBar"
+  style="text-align: right;
+  vertical-align: top;
+  width: 50%;"
+>
+<div style="margin: 0px; padding: 0px;">
+<ul id="nav">
+<li>
+<span>
+<span>
+<a
+  class="menuLink"
+  href="../../explore;jsessionid=D04049EFA0CC7BD0D6CC2DC5BBF10A6D"
+  target="_top"><span class="menuText">
+  Explore
+</span>
+</a>
+</span>
+</span>
+</li><li>
+<span>
+<span>
+<a class="menuLink" href="../../signup;jsessionid=D04049EFA0CC7BD0D6CC2DC5BBF10A6D" target="_top"><span class="menuText">Sign Up</span></a>
+</span>
+</span>
+</li><li>
+<span>
+<span>
+<a class="menuLink" href="https://webbrain.com/login" target="_top"><span class="menuText">Login</span></a>
+</span>
+</span>
+</li><li>
+<span>
+<span>
+<a class="menuLink" href="../../about;jsessionid=D04049EFA0CC7BD0D6CC2DC5BBF10A6D" target="_top"><span class="menuText">About</span></a>
+</span>
+</span>
+</li><li>
+<span>
+<span>
+<a class="menuLink" href="../../;jsessionid=D04049EFA0CC7BD0D6CC2DC5BBF10A6D?wicket:bookmarkablePage=:com.thebrain.webbrain.pages.other.Download" target="_top"><span class="menuText">Download</span></a>
+</span>
+</span>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+<div id="contentContainer" style="position: absolute; bottom: 0px; top: 25px; left: 0px; right: 0px;">
+<!-- begin status messages -->
+<!-- end status messages -->
+<!-- begin main page content -->
+<noscript>
+<div class="roundBox blueBorder center" style="width: 500px;">
+<div class="whiteBody cf">
+<p>Your browser does not support Javascript. Please enable it for a richer experience.</p>
+<p><a href="../../hbrainpage/brain/C6015FA0-82BF-F1FA-9D05-0EA9FD7F845E;jsessionid=D04049EFA0CC7BD0D6CC2DC5BBF10A6D" target="_top">Open an HTML-only version of this Brain.</a></p>
+</div>
+</div>
+</noscript>
+<!-- end main page content -->
+</div>
+<!-- google analytics -->
+<script type="text/javascript">
+        var gaJsHost = ((
+          "https:" == document.location.protocol
+          )
+          ? "https://ssl." : "http://www."
+        );
+        document.write(
+            unescape(
+            "%3Cscript src='" + gaJsHost +
+            "google-analytics.com/ga.js'
+            type='text/javascript'%3E%3C/script%3E
+        "));
+      </script>
+<script type="text/javascript">
+        try {
+          var pageTracker = _gat._getTracker("UA-5305678-2");
+          pageTracker._trackPageview();
+        } catch(err) {}
+      </script>
+</body>
+</html>
+
+
+(klaus) c:\gosso\ongoingprojects\web_brain_scrapper>
