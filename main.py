@@ -9,7 +9,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
-from requests_html import HTMLSession
+
 
 
 
@@ -40,10 +40,6 @@ def write_file(path, data):
 
 
 
-
-
-
-
 def get_slug():
     '''
     Unless their url slugs are deprecated then the following can get
@@ -53,8 +49,11 @@ def get_slug():
     Mystery Tours  >>  https://webbrain.com/brainpage/brain/C6015FA0-82BF-F1FA-9D05-0EA9FD7F845E#-2762
     GateWays >> https://webbrain.com/brainpage/brain/C6015FA0-82BF-F1FA-9D05-0EA9FD7F845E#-2750
     Declaration of Independence >> https://webbrain.com/brainpage/brain/C6015FA0-82BF-F1FA-9D05-0EA9FD7F845E#-2922
-
     for now they are the only ones that matter till we choose otherwise
+    We are handling exceptions  a lot when it comes to inputs to avoid a situation where 
+    user inputs crush the code. We try by all means to give the end user 3 chances in every 
+    mistake they commit so as to avoid the code just exiting after so much steps have been
+    followed. 
 
 
     '''
@@ -74,11 +73,46 @@ def get_slug():
         elif slug == 3:
             return '#-2922'
         else:
-            print('Try again')
-            sys.exit()
+            input_chances = 3
+            while input_chances > 0:
+                try:
+                    slug = int(input('Enter your choice >>>  '))
+                    input_chances -= 1
+                    if slug == 1:
+                        return '#-2762'
+                        break
+                    elif slug == 2:
+                        return '#-2750'
+                        break
+                    elif slug == 2:
+                        return '#-2922'
+                        break
+                except ValueError:
+                    pass
+            else:
+                print('Sorry you need to follow instructions')
+                sys.exit()
     except ValueError:
-        print('Sorry you need to put a number to proceed')
-        sys.exit()
+        input_chances = 3
+        while input_chances > 0:
+            try:
+                slug = int(input('Enter your choice >>>  '))
+                input_chances -= 1
+                if slug == 1:
+                    return '#-2762'
+                    break
+                elif slug == 2:
+                    return '#-2750'
+                    break
+                elif slug == 2:
+                    return '#-2922'
+                    break
+            except ValueError:
+                print('Sorry you need to follow instructions')
+                sys.exit()
+        else:
+            print('Sorry you need to follow instructions')
+            sys.exit()
 
 
 
@@ -87,6 +121,22 @@ def get_url(slug):
         Concatanates slug to produce the url
     '''
     return  f'https://webbrain.com/brainpage/brain/C6015FA0-82BF-F1FA-9D05-0EA9FD7F845E{slug}'
+
+
+def deduplicate_and_clean_root_nodes(nodes):
+    '''
+        In scrapped texts that exist after clicking the div->thought ->active there
+        the root_or_second_generation_nodes are always avaliable. Hence a need to dump them
+        we also need to convert the list in a set to eliminate duplicates there are any
+        We are interested in dumping the root node (The Knowledge Web and its children)
+    '''  
+    deduplicated_nodes = set(nodes)
+    filtered= []
+    for node in deduplicated_nodes:
+        #
+        if is_root_or_second_generation_node(node) != True:
+            filtered.append(node)
+    return filtered
 
 
 
@@ -121,12 +171,14 @@ def is_root_or_second_generation_node(text):
         clicked and then the tree node of the path is exposed when the div state
         is altered into active. It seems only one div with class thought can be
         active in the entire page, per an individual user query
+        
    
     '''
     if text in ['The Knowledge Web', 'Gateways', 'Mystery Tours', 'Declaration of Independence']:
         return True
     else:
         return False
+
 
 
 def get_user_choice(nodes):
@@ -136,49 +188,64 @@ def get_user_choice(nodes):
             - have a system randomly spawn a node for the user and proceed to the next step
 
         the we have a double level conditional algorithm > first to handle the above and secondly
-        to make the user inputs is in the list of nodes 
+        to make the user inputs is in the list of nodes
+        Our exception handling is based on failure to borrow all the trust to our users when it
+        comes to input. Where they are expected to put integers some can always go for strings
+        thus strings can not be used as a param to index a list
+        we give three chances for the user to select the right choice in case their 
+        choice is not between 1/2
+
+        for making a user friendly system we are allowing a user to choose
+        the index value of a node hence the enumeration while looping over
+        the nodes to show to a client
+        hence all this cleaned_nodes[node] business
+        yet to handle having three chances for every user input error as this is 
+        the mother of the navigation process
     '''
+
     print('Choose either you would want the system to randomly choose a topic of interest or you want a determined outcome')
     print('Enter 1 for random >>>')
     print('Enter 2 for preffered topic >>>')
 
-    node = int(input('Your choice >>  '))
+    cleaned_nodes = deduplicate_and_clean_root_nodes(nodes) 
     desired_choices = [1, 2]
-    #we give three chances for the user to select the right choice in case their choice is not between 1/2
-    if node in desired_choices:
-        if node == desired_choices[0]:
-            return random.choices(nodes)
-        else:
-            print('Choose one Topic from the List of Topics below')
-            print(f'Your Topic Choices')
-            for i, opt in enumerate(nodes):
-                print(f'{i}: {opt}')
-            node = input('Please type your choice as it is the list above here >>  ')
-            if node in nodes:
-                return node
+    try:
+        node = int(input('Your choice >>  '))
+
+        if node in desired_choices:
+            if node == desired_choices[0]:
+                return random.choices(cleaned_nodes)[0]
             else:
-                print('Make Sure You read the Instructions correctly and try again')
-                #May need to have a while loop and give an end user multiple choices before
-                #the program breaks
-                sys.exit()
-    else:
-        print('Your choice is not in the list above. Follow the instructions and start the project again')
-        #May need to have a while loop and give an end user multiple choices before
-        #the program breaks
-        sys.exit()
-        
+                print('Choose one Topic from the List of Topics below')
+                print(f'Your Topic Choices')
+                for i, opt in enumerate(cleaned_nodes):
+                    print(f'{i}: {opt}')
+                try:
+                    node = int(input('Please Select your choices based on their numbers >>  '))           
+                    if cleaned_nodes[node] in cleaned_nodes:
+                        return cleaned_nodes[node]
+                    else:
+                        print('Make Sure You read the Instructions correctly and try again')
+                        sys.exit()
+                except ValueError:
+                    print('Sorry you need to put a number to proceed')
+                    sys.exit() 
+        else:
+            print('Your choice is not in the list above. Follow the instructions and start the project again')
+            sys.exit()
+    except ValueError:
+        print('Sorry you need to put a number to proceed')
+        sys.exit()       
+
+
 
 def filtered_nodes(text,nodes):
-    # In scrapped texts that exist after clicking the div->thought ->active there
-    # the root_or_second_generation_nodes are always avaliable. Hence a need to dump them
-    # we also need to convert the list in a set to eliminate duplicates there are any
-    deduplicated_nodes = set(nodes)
-    filtered= []
-    for node in deduplicated_nodes:
-        #
-        if is_root_or_second_generation_node(node) != True:
-            filtered.append(node)
-    return [node for node in filtered if node !=text]
+    '''
+        We are concerned about filtering out the parent node from the list of children
+    '''
+    cleaned_nodes = deduplicate_and_clean_root_nodes(nodes)  
+    return [node for node in cleaned_nodes  if node !=text]
+
 
 
 def get_user_intention():
@@ -207,53 +274,14 @@ def is_childless(nodes, text):
         When a node has no more childress its pointless to continue navigating
         You are only limited to the scrape only functionality and exit
     '''
-    deduplicated_nodes = set(nodes)
-    unpruned_nodes = []
-    for node in deduplicated_nodes:
-        if is_root_or_second_generation_node(node) != True:
-            unpruned_nodes.append(node)
-    children = [node for node in unpruned_nodes if node != text]
+    cleaned_nodes = deduplicate_and_clean_root_nodes(nodes) 
+    children = [node for node in cleaned_nodes if node != text]
     if len(children) < 1: 
         return True
     else: 
         return False
 
 
-def selenium_configuration():
-    # options = webdriver.ChromeOptions()
-    # options.add_experimental_option('excludeSwitches', ['enable-logging'])
-    # driver = webdriver.Chrome(options=options, executable_path='chromedriver.exe')
-    
-    # driver.get(url)
-    # # driver.implicitly_wait(50)
-
-    # try:
-    #     element = WebDriverWait(driver, 50).until(
-    #         EC.presence_of_element_located((By.ID, "myDynamicElement"))
-    #     )
-    # except:
-    #     print('Is loading Fail')
-    pass
-
-
-def puppeteer_config():
-    # r = session.get(url)
-    # r.html.render(
-    #     timeout=50,
-    #     retries = 8, 
-    #     script = None, 
-    #     wait = 2.5, 
-    #     scrolldown=True, 
-    #     sleep = 10, 
-    #     reload = True, 
-    #     keep_page = True     
-    # )
-    # session = HTMLSession()
-
-    pass
-
-
-    
 
 
 
@@ -268,7 +296,7 @@ def init_scraping():
     # driver.implicitly_wait(50)
 
     try:
-        element = WebDriverWait(driver, 50).until(
+        element = WebDriverWait(driver, 10).until(
             EC.presence_of_element_located((By.ID, "myDynamicElement"))
         )
     except:
