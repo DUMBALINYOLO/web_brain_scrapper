@@ -50,10 +50,10 @@ def get_slug():
     GateWays >> https://webbrain.com/brainpage/brain/C6015FA0-82BF-F1FA-9D05-0EA9FD7F845E#-2750
     Declaration of Independence >> https://webbrain.com/brainpage/brain/C6015FA0-82BF-F1FA-9D05-0EA9FD7F845E#-2922
     for now they are the only ones that matter till we choose otherwise
-    We are handling exceptions  a lot when it comes to inputs to avoid a situation where 
-    user inputs crush the code. We try by all means to give the end user 3 chances in every 
+    We are handling exceptions  a lot when it comes to inputs to avoid a situation where
+    user inputs crush the code. We try by all means to give the end user 3 chances in every
     mistake they commit so as to avoid the code just exiting after so much steps have been
-    followed. 
+    followed.
 
 
     '''
@@ -129,7 +129,7 @@ def deduplicate_and_clean_root_nodes(nodes):
         the root_or_second_generation_nodes are always avaliable. Hence a need to dump them
         we also need to convert the list in a set to eliminate duplicates there are any
         We are interested in dumping the root node (The Knowledge Web and its children)
-    '''  
+    '''
     deduplicated_nodes = set(nodes)
     filtered= []
     for node in deduplicated_nodes:
@@ -143,20 +143,20 @@ def deduplicate_and_clean_root_nodes(nodes):
 def is_root_or_second_generation_node(text):
     '''
         The slugs/ids that are dynamically altered when you click on the node
-        are hidden except in the source code and my assumption would be its 
-        concealed in a react-router-dom like way of navigation. Therefore we are 
+        are hidden except in the source code and my assumption would be its
+        concealed in a react-router-dom like way of navigation. Therefore we are
         left with no choice except for extracting all the text that lies in
         the divs with class thought ->
-         <div 
-            class="thought" 
-            style="font-size: 15px; 
-            top: 219px; 
-            left: 217px; 
-            color: rgb(255, 0, 0); 
-            background-color: rgba(0, 0, 0, 0.5); 
-            font-family: sans-serif; 
-            padding: 2px; 
-            opacity: 1; 
+         <div
+            class="thought"
+            style="font-size: 15px;
+            top: 219px;
+            left: 217px;
+            color: rgb(255, 0, 0);
+            background-color: rgba(0, 0, 0, 0.5);
+            font-family: sans-serif;
+            padding: 2px;
+            opacity: 1;
             z-index: 100;"
         >
 
@@ -167,12 +167,12 @@ def is_root_or_second_generation_node(text):
 
             => driver.find_elements_by_xpath("//*[contains(text(), text)]")
                 and then attempt to click the div
-        This is so because the url links are changed when this div component is 
+        This is so because the url links are changed when this div component is
         clicked and then the tree node of the path is exposed when the div state
         is altered into active. It seems only one div with class thought can be
         active in the entire page, per an individual user query
-        
-   
+
+
     '''
     if text in ['The Knowledge Web', 'Gateways', 'Mystery Tours', 'Declaration of Independence']:
         return True
@@ -192,14 +192,14 @@ def get_user_choice(nodes):
         Our exception handling is based on failure to borrow all the trust to our users when it
         comes to input. Where they are expected to put integers some can always go for strings
         thus strings can not be used as a param to index a list
-        we give three chances for the user to select the right choice in case their 
+        we give three chances for the user to select the right choice in case their
         choice is not between 1/2
 
         for making a user friendly system we are allowing a user to choose
         the index value of a node hence the enumeration while looping over
         the nodes to show to a client
         hence all this cleaned_nodes[node] business
-        yet to handle having three chances for every user input error as this is 
+        yet to handle having three chances for every user input error as this is
         the mother of the navigation process
     '''
 
@@ -207,7 +207,7 @@ def get_user_choice(nodes):
     print('Enter 1 for random >>>')
     print('Enter 2 for preffered topic >>>')
 
-    cleaned_nodes = deduplicate_and_clean_root_nodes(nodes) 
+    cleaned_nodes = deduplicate_and_clean_root_nodes(nodes)
     desired_choices = [1, 2]
     try:
         node = int(input('Your choice >>  '))
@@ -221,7 +221,7 @@ def get_user_choice(nodes):
                 for i, opt in enumerate(cleaned_nodes):
                     print(f'{i}: {opt}')
                 try:
-                    node = int(input('Please Select your choices based on their numbers >>  '))           
+                    node = int(input('Please Select your choices based on their numbers >>  '))
                     if cleaned_nodes[node] in cleaned_nodes:
                         return cleaned_nodes[node]
                     else:
@@ -229,13 +229,13 @@ def get_user_choice(nodes):
                         sys.exit()
                 except ValueError:
                     print('Sorry you need to put a number to proceed')
-                    sys.exit() 
+                    sys.exit()
         else:
             print('Your choice is not in the list above. Follow the instructions and start the project again')
             sys.exit()
     except ValueError:
         print('Sorry you need to put a number to proceed')
-        sys.exit()       
+        sys.exit()
 
 
 
@@ -243,7 +243,7 @@ def filtered_nodes(text,nodes):
     '''
         We are concerned about filtering out the parent node from the list of children
     '''
-    cleaned_nodes = deduplicate_and_clean_root_nodes(nodes)  
+    cleaned_nodes = deduplicate_and_clean_root_nodes(nodes)
     return [node for node in cleaned_nodes  if node !=text]
 
 
@@ -263,7 +263,7 @@ def get_user_intention():
         elif user_intention == 2:
             return 'Scrape, Save & Continue'
         else:
-            return 'Continue Navigating'       
+            return 'Continue Navigating'
     else:
         print('Sorry you failed to follow the Instructions')
         sys.exit()
@@ -274,26 +274,37 @@ def is_childless(nodes, text):
         When a node has no more childress its pointless to continue navigating
         You are only limited to the scrape only functionality and exit
     '''
-    cleaned_nodes = deduplicate_and_clean_root_nodes(nodes) 
+    cleaned_nodes = deduplicate_and_clean_root_nodes(nodes)
     children = [node for node in cleaned_nodes if node != text]
-    if len(children) < 1: 
+    if len(children) < 1:
         return True
-    else: 
+    else:
         return False
 
 
 def get_first_generation_grand_children(driver):
 
     soup = BeautifulSoup(driver.page_source, 'html.parser')
-    
-    
+
+
     children =[tag.text for tag in soup.find_all('div', attrs={'class': 'thought'}) if tag.text !='More Pins']
-    
+
     return children
 
 
-def scrape_relations():
-    pass
+def scrape_relations(driver, text):
+    element = driver.find_element_by_xpath('//div[contains(text(), "' + text + '")]');
+
+    driver.execute_script("arguments[0].click();", element)
+    try:
+        element = WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.ID, "myDynamicElement"))
+        )
+    except:
+        print('')
+    soup = BeautifulSoup(driver.page_source, 'html.parser')
+    children =[tag.text for tag in soup.find_all('div', attrs={'class': 'thought'}) if tag.text !='More Pins']
+    return deduplicate_and_clean_root_nodes(children)
 
 
 
@@ -303,12 +314,12 @@ def init_scraping():
     url = get_url(slug)
     options = webdriver.ChromeOptions()
     options.add_experimental_option('excludeSwitches', ['enable-logging'])
-    options.add_argument('--no-sandbox')
-    options.add_argument('--disable-dev-shm-usage')
-    options.add_argument('--headless')
-    options.add_argument('blink-settings=imagesEnabled=false')
-    options.add_argument('--disable-gpu')
-    driver = webdriver.Chrome(options=options, executable_path='chromedriver.exe')  
+    # options.add_argument('--no-sandbox')
+    # options.add_argument('--disable-dev-shm-usage')
+    # options.add_argument('--headless')
+    # options.add_argument('blink-settings=imagesEnabled=false')
+    # options.add_argument('--disable-gpu')
+    driver = webdriver.Chrome(options=options, executable_path='chromedriver.exe')
     driver.get(url)
     try:
         element = WebDriverWait(driver, 10).until(
@@ -317,7 +328,9 @@ def init_scraping():
     except:
         print('')
     children = get_first_generation_grand_children(driver)
-    z = get_user_choice(children)
+    choice = get_user_choice(children)
+
+    z = scrape_relations(driver=driver, text=choice)
     print(z)
 
 
@@ -326,7 +339,3 @@ def init_scraping():
 
 if __name__ == '__main__':
     init_scraping()
-    
-
-
-    
