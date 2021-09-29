@@ -282,6 +282,19 @@ def is_childless(nodes, text):
         return False
 
 
+def get_first_generation_grand_children(driver):
+
+    soup = BeautifulSoup(driver.page_source, 'html.parser')
+    
+    
+    children =[tag.text for tag in soup.find_all('div', attrs={'class': 'thought'}) if tag.text !='More Pins']
+    
+    return children
+
+
+def scrape_relations():
+    pass
+
 
 
 
@@ -290,23 +303,21 @@ def init_scraping():
     url = get_url(slug)
     options = webdriver.ChromeOptions()
     options.add_experimental_option('excludeSwitches', ['enable-logging'])
-    driver = webdriver.Chrome(options=options, executable_path='chromedriver.exe')
-    
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('--headless')
+    options.add_argument('blink-settings=imagesEnabled=false')
+    options.add_argument('--disable-gpu')
+    driver = webdriver.Chrome(options=options, executable_path='chromedriver.exe')  
     driver.get(url)
-    # driver.implicitly_wait(50)
-
     try:
         element = WebDriverWait(driver, 10).until(
             EC.presence_of_element_located((By.ID, "myDynamicElement"))
         )
     except:
-        print('Is loading Fail')
-    
-    soup = BeautifulSoup(driver.page_source, 'html.parser')
-    nodes =[tag.text for tag in soup.find_all('div', attrs={'class': 'thought'}) if tag.text !='More Pins']
-    
-    # filtered_nodes(text,nodes)
-    z = get_user_choice(nodes)
+        print('')
+    children = get_first_generation_grand_children(driver)
+    z = get_user_choice(children)
     print(z)
 
 
