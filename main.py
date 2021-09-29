@@ -17,6 +17,10 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 
 def create_project_directory(directory):
+    '''
+     shall create folders based on datatetime.date
+    '''
+    
     if not os.path.exist(directory):
         print(f'Creating Directory {directory}')
         os.makedirs(directory)
@@ -189,6 +193,12 @@ def get_user_choice(nodes):
         We try to make things interesting here by allowing the user to have an option:
             - purposively select a path leading to spawning children nodes of a node or
             - have a system randomly spawn a node for the user and proceed to the next step
+
+            - for testing we could operate over a list and pseudo randomly navigate our way
+            to the extraction but going deep into the system there is a mouse option there is
+            a clickMenu Link with text Wander. It spawns and scrapes the site randomly at an infinite
+            loop. Should it be the case then we can offer options for how many random cases to
+            have and then after the user input scrape until its done
 
         the we have a double level conditional algorithm > first to handle the above and secondly
         to make the user inputs is in the list of nodes
