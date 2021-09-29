@@ -1,21 +1,15 @@
-'Alternating Current',
-'Amp',
-'Banana',
-'Electric Motor',
-'Kaleidoscope',
-"Miner's Safety Lamp",
-'Potassium',
-'Sodium',
-'Trainers / Sneakers',
-'Visual Perspective',
-'aspirin',
-'atom bomb', 
-'automobile',
-'Basketball',
-'bicycle',
-'Big Bang',
-'Gizmos',
-'microwave oven',
-'Poptart',
-'Sandwich',
-'telephone',
+<div
+  class="thought"
+  style="
+  font-size: 15px;
+  top: -1000px;
+  left: -1000px;
+  color: rgb(255, 204, 51);
+  background-color: rgba(0, 0, 0, 0.5);
+  font-family: sans-serif;
+  padding: 2px;
+  opacity: 1;
+  z-index: 100;
+">
+  Bottle Cap to Frederick the Great
+</div>

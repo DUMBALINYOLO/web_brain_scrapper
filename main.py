@@ -9,6 +9,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.common.action_chains import ActionChains
 
 
 
@@ -286,15 +287,21 @@ def get_first_generation_grand_children(driver):
 
     soup = BeautifulSoup(driver.page_source, 'html.parser')
 
-
+    # we are  going to be deprecating this king of text extraction as the overflow is hidden for long nodes and we wouldn't
+    # want to extract an unfinshed node with a ...
     children =[tag.text for tag in soup.find_all('div', attrs={'class': 'thought'}) if tag.text !='More Pins']
 
     return children
 
 
 def scrape_relations(driver, text):
-    element = driver.find_element_by_xpath('//div[contains(text(), "' + text + '")]');
+    # this needs to be depracated for the searchBox, searchBoxInput, clickMenu, clickItemSelected
+    # as there seems to be more happening in that department that will be exposed by knifing the css
+    # interesting the search button is not working but the clickitem is the one that matters and need looking into
+    # and then whats manipulated is the selected click item
 
+    '''
+    element = driver.find_element_by_xpath('//div[contains(text(), "' + text + '")]');
     driver.execute_script("arguments[0].click();", element)
     try:
         element = WebDriverWait(driver, 10).until(
@@ -302,11 +309,18 @@ def scrape_relations(driver, text):
         )
     except:
         print('')
+    '''
+    # elements_to_hover = driver.find_elements_by_xpath('//div[@class="thought"]')
+    # action = ActionChains(driver)
+    # action.move_to_element(elements_to_hover).perform()
+    # we are  going to be deprecating this king of text extraction as the overflow is hidden for long nodes and we wouldn't
+    # want to extract an unfinshed node with a ...
+
+    #to be continued from here.... For now we are just exposing the source code
     soup = BeautifulSoup(driver.page_source, 'html.parser')
-    children =[tag.text for tag in soup.find_all('div', attrs={'class': 'thought'}) if tag.text !='More Pins']
-    return deduplicate_and_clean_root_nodes(children)
-
-
+    # children =[tag.text for tag in soup.find_all('div', attrs={'class': 'thought'}) if tag.text !='More Pins']
+    # return deduplicate_and_clean_root_nodes(children)
+    print(soup.prettify())
 
 
 def init_scraping():
@@ -330,8 +344,8 @@ def init_scraping():
     children = get_first_generation_grand_children(driver)
     choice = get_user_choice(children)
 
-    z = scrape_relations(driver=driver, text=choice)
-    print(z)
+    scrape_relations(driver=driver, text=choice)
+
 
 
 
