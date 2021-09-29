@@ -167,7 +167,9 @@ def is_root_or_second_generation_node(text):
         word then is extracted and dynamically put into
 
             => driver.find_elements_by_xpath("//*[contains(text(), text)]")
-                and then attempt to click the div
+                and then attempt to click the div ... I may have taken the hard path here
+            => well there seem to be a better way and it has to do with the searchBox and ul.stationaryClickMenu li
+            => we need to manipulate these guys in order to start playing around and scrapping
         This is so because the url links are changed when this div component is
         clicked and then the tree node of the path is exposed when the div state
         is altered into active. It seems only one div with class thought can be
