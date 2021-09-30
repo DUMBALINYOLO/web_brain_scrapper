@@ -23,3 +23,4 @@ elements = WebDriverWait(driver, 5).until(EC.visibility_of_all_elements_located(
 (2) make the the the user choice inputs iterate based on the desired actions
 (3) extract and save and all the interestting stuff. Please ignore the the other files except 
     for main.py
+(4) I am two days away from wrapping up
