@@ -16,3 +16,10 @@ The css files are just for understanding some elements and try locate some eleme
 paths in order to call actions like this
 
 elements = WebDriverWait(driver, 5).until(EC.visibility_of_all_elements_located((By.CSS_SELECTOR, "img.market_listing_item_img.economy_item_hoverable")))
+
+
+
+(1) have figured out everything. Now I am left with hovering over the css hidden components
+(2) make the the the user choice inputs iterate based on the desired actions
+(3) extract and save and all the interestting stuff. Please ignore the the other files except 
+    for main.py
