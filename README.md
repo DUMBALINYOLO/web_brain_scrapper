@@ -1,7 +1,7 @@
 # web_brain_scrapper
 Scrapping Web Brain using python
 
-This code is still 3/4 away from being finished.
+This code is still 1/3 away from being finished.
 Still more to come as the next steps have to do with livening up the selenium robotic process
 and at least try to mess with manipulating those tree nodes and then write the scrapped data
 to the files. requests-html was tested in the curiosity of the selenium versus puppeteer debacle
@@ -21,6 +21,6 @@ elements = WebDriverWait(driver, 5).until(EC.visibility_of_all_elements_located(
 
 (1) have figured out everything. Now I am left with hovering over the css hidden components
 (2) make the the the user choice inputs iterate based on the desired actions
-(3) extract and save and all the interestting stuff. Please ignore the the other files except 
-    for main.py
-(4) I am two days away from wrapping up
+(3) I am two days away from wrapping up
+(4) The project has been split into files so as to avoid the main file being too big to
+    write
