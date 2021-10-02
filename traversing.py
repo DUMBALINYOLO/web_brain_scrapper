@@ -1,4 +1,5 @@
 import time
+import re
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -13,7 +14,20 @@ from user_inputs import (
 from thought_generation import (
     get_listed_description
 )
+from file_handling import (
+    create_file,
+)
 
+
+
+
+def dewhitespacify(word):
+
+    # Remove all non-word characters (everything except numbers and letters)
+    s = re.sub(r"[^\w\s]", '', word)
+    s = re.sub(r"\s+", '_', word)
+
+    return s
 
 def deduplicate_and_clean_root_nodes(nodes):
     '''
@@ -198,11 +212,14 @@ def get_first_generation_node_children(driver):
     return cleaned_nodes
 
 
-def scrape_and_save(driver):
+def scrape_and_save(driver, choice):
     print('Scrapping and Saving started ...')
     time.sleep(2)
     thought_detail = get_listed_description(driver)
-    file=open('zero.txt','w')
+    print(thought_detail)
+    node = dewhitespacify(choice)
+    x = create_file(node)
+    file = open(x, 'a')
     for items in  thought_detail:
         file.writelines(items+'\n')
     file.close()
@@ -250,7 +267,7 @@ def utilitarianly_traverse(driver):
             print(traverse_tree)
             user_intention = get_user_intention()
             if user_intention == 'Scrape & Save':
-                scrape_and_save(driver=driver)
+                scrape_and_save(driver=driver, choice=traverse_nodes[node])
             elif user_intention == 'Scrape, Save & Continue':
                 scrape_save_and_continue(driver=driver, nodes=traverse_tree)
             elif user_intention == 'Continue Navigating':

@@ -16,10 +16,6 @@ from user_inputs import (
                     get_user_choice,
                     get_slug,
                 )
-from file_handling import (
-    create_project_directory,
-    create_file,
-)
 from traversing import (
     randomly_traverse,
     utilitarianly_traverse   

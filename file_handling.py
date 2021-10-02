@@ -1,28 +1,15 @@
 import os
-
-
-
-def create_project_directory(directory):
-    '''
-     shall create folders based on datatetime.date
-    '''
-    
-    if not os.path.exist(directory):
-        print(f'Creating Directory {directory}')
-        os.makedirs(directory)
-    else:
-        print(f'Directory with the name of {directory} already exits')
+import pathlib
 
 
 
 def create_file(node):
-    queue = node + '-queue.txt'
-    crawled = node + '-crawled.txt'
-    if not os.path.isfile(crawled):
-        write_file(crawled)
+    new_dir = pathlib.Path(os.getcwd(), node)
+    new_dir.mkdir(parents=True, exist_ok=True)
+    # You have to make a file inside the new directory
+    new_file = new_dir / f'{node}.txt'
+    new_file.write_text(node)
+    
+    return new_file
 
 
-def write_file(path, data):
-    f = open(path, 'w')
-    f.write(data)
-    f.close()

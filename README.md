@@ -24,3 +24,21 @@ elements = WebDriverWait(driver, 5).until(EC.visibility_of_all_elements_located(
 (3) I am two days away from wrapping up
 (4) The project has been split into files so as to avoid the main file being too big to
     write
+(5) The is a need to do so much parsing of different text containers as the site is not 
+    consisted on how the thought details are stored, we will have to handle returning none on some of them and capture those which matter. So we shall sample more than 20 different
+    scenarios and handle them in a manner where there are small chances of the program
+    hitting a brickwall
+(6) The program has started scrapping and saving. Now we go on and handle navigation, scrapping
+    saving
+(7) Number 5 shall be deeply should there be an agreed way how the data can be presented and     since it demands time. At least to go deep there shall be a principal agreement if I should continue and go deeper int the project or what
+
+(8) After tomorrow there shall be more posibilities on many improvements that can be done on the
+    project and take to a level where its quite amazing
+
+(9) The subfolders belong to the scrapped first_generation_grand_children
+
+(10) Those with an empty .txt file is an indication that information is stored in different 
+      boxes and we should go deeper and at least figure out all these mysterious boxes
+      
+(11) Some of these links are just empty as thoughts and they are just there to lead one to somewhere
+
