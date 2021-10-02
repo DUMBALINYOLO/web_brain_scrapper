@@ -1,0 +1,56 @@
+computerhttp://en.wikipedia.org/wiki/Vannevar_Bush
+http://en.wikipedia.org/wiki/Computer
+http://en.wikipedia.org/wiki/Computer_program
+http://en.wikipedia.org/wiki/Central_processing_unit
+http://en.wikipedia.org/wiki/Memory_(computers)
+http://en.wikipedia.org/wiki/World_War_II
+http://en.wikipedia.org/wiki/Mechanical_computer
+http://en.wikipedia.org/wiki/Analog_computers
+http://en.wikipedia.org/wiki/Digital_data
+http://en.wikipedia.org/wiki/Personal_computer
+http://en.wikipedia.org/wiki/Computer#cite_note-1
+http://en.wikipedia.org/wiki/Integrated_circuit
+http://en.wikipedia.org/wiki/Computer#cite_note-2
+http://en.wikipedia.org/wiki/Mobile_device
+http://en.wikipedia.org/wiki/Mobile_computing
+http://en.wikipedia.org/wiki/Battery_(electricity)
+http://en.wikipedia.org/wiki/Icon
+http://en.wikipedia.org/wiki/Information_Age
+http://en.wikipedia.org/wiki/Embedded_system
+http://en.wikipedia.org/wiki/Digital_audio_player
+http://en.wikipedia.org/wiki/Fighter_aircraft
+http://en.wikipedia.org/wiki/Industrial_robot
+Electronic computer
+
+OTHER-NAME: ENIAC (Electronic Numerical Integrator and Computer)
+
+DATE INVENTED/BEGAN: 14 February 1946
+PLACE INVENTED/BEGAN: Philadelphia, PA
+
+CATEGORY: Technology
+
+DISCIPLINE: Invention
+
+ASSESSMENT: Major cultural and scientific development
+
+LANGUAGE: English
+
+DETAILS:
+The Electronic Numerical Integrator and Computer (ENIAC) was the first large electronic digital computer and was designed by the American engineers John Mauchly* and J Presper Eckert*.
+ENIAC went into operation at the Moore School of Engineering at Pennsylvania University in Philadelphia, PA on February 14th 1946.
+ENIAC used 17,468 vacuum tubes, along with 70,000 resistors, 10,000 capacitors, 1,500 relays, 6,000 manual switches and 5 million soldered joints. It covered 1800 square feet (167 square meters) of floor space, weighed 30 tons, and used 160 kilowatts of electrical power. The machine filled an entire floor of the building and the myth grew that when it was switched on, the lights of Philadelphia dimmed.
+At the ENIAC sped up calculation of a shell trajectory (the main purpose for which it was designed) from 20 hrs to 30 secs (ENIAC could perform calculation of 5,000 additions, 357 multiplications and 38 divisions in one second).
+This was accomplished by using the vacuum tubes to store numbers. A tube was either on or off. The tubes were set in 20 decades (1-9). So if the fifth tube of the first decade was on and all others were off, the machine was storing ‘5.’
+In this way calculations could be performed as if the machine were an electronic abacus, because each set of number-decade tubes was linked to an ‘accumulator’ which held the ‘sum’ represented in the decade tubes. This could interact with the next accumulator, and so on.
+Accumulators were ‘programmed’ to interact in different ways depending on the kind of calculation to be performed. Programming was laborious, involving throwing thousands of switches and plugging cables. But once set up, the calculation was done at electronic speed.
+
+ONELINER: The first electronic computer
+
+EXTRA-CONNECTIONS: None
+
+BIBLIOGRAPHY:
+EB
+DSB
+Conventionally, a computer consists of at least one processing element, typically a central processing unit (CPU) and some form of memory. The processing element carries out arithmetic and logic operations, and a sequencing and control unit that can change the order of operations based on stored information. Peripheral devices allow information to be retrieved from an external source, and the result of operations saved and retrieved.
+In World War II, mechanical analog computers were used for specialized military applications. During this time the first electronic digital computers were developed. Originally they were the size of a large room, consuming as much power as several hundred modern personal computers (PCs).[1]
+Modern computers based on integrated circuits are millions to billions of times more capable than the early machines, and occupy a fraction of the space.[2] Simple computers are small enough to fit into mobile devices, and mobile computers can be powered by small batteries. Personal computers in their various forms are icons of the Information Ageand are what most people think of as “computers.” However, the embedded computers found in many devices from MP3 players to fighter aircraft and from toys to industrial robots are the most numerous.

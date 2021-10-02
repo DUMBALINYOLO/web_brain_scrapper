@@ -16,6 +16,7 @@ from thought_generation import (
     get_source_links,
     get_description_one,
     get_description_two,
+    get_images,
 )
 from file_handling import (
     create_file,
@@ -224,10 +225,13 @@ def scrape_and_save(driver, choice):
     links = get_source_links(driver)
     description_one = get_description_one(driver)
     description_two = get_description_two(driver)
+    images = get_images(driver)
     node = dewhitespacify(choice)
     x = create_file(node)
     file = open(x, 'a')
     for items in links:
+        file.writelines(items+'\n')
+    for items in images:
         file.writelines(items+'\n')
     for items in description_one:
         file.writelines(items+'\n')

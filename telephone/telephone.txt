@@ -1,0 +1,38 @@
+telephonehttp://en.wikipedia.org/wiki/Telephone
+https://webbrain.com/brainpage/brain/C6015FA0-82BF-F1FA-9D05-0EA9FD7F845E#-183
+https://webbrain.com/brainpage/brain/C6015FA0-82BF-F1FA-9D05-0EA9FD7F845E#-183
+https://webbrain.com/brainpage/brain/C6015FA0-82BF-F1FA-9D05-0EA9FD7F845E#-176
+http://www.ideafinder.com/history/inventions/story078.htm
+http://www.connected-earth.com/Journeys/Howitworks/Telephone/telephone.htm
+http://en.wikipedia.org/wiki/Telephone
+http://en.wikipedia.org/wiki/Timeline_of_the_telephone
+http://memory.loc.gov/ammem/bellhtml/bellhome.html
+http://electronics.howstuffworks.com/telephone1.htm
+http://electronics.howstuffworks.com/telephone-image.htm
+http://upload.wikimedia.org/wikipedia/commons/thumb/9/94/TalAutoMusTelephoneCandlestick.jpg/170px-TalAutoMusTelephoneCandlestick.jpg
+Telephone
+
+ALTERNATIVE NAME/S: Phone
+
+DETAILS/DESCRIPTION:
+Because Alexander Graham Bell* filed for his telephone patent two hours before Elisha Gray* filed his caveat on the 14th of February 1876, the U.S. Supreme Court granted Bell the rights for this invention (patent No. 174,465).
+The telephone converts sounds into electrical impulses that are transmitted through a channel then converted back to sound at the receiver. One generally-used method of conversion uses a thin metal layer in the microphone that vibrates at the sound of the voice. This compresses carbon granules inside the mouthpiece. Since these granules form a circuit with a battery, a loud sound ompresses them more than a softer sound, changes their electrical resistance and, as the speech noise changes, this in turn affects the current in the circuit.
+This process is basically reversed at the other end of the line, where the current passes through an electromagnet, creating a varying magnetic field. This varying field attracts an thin iron disc, which vibrates the air in front of it at different frequencies according the electric current in the line, effectively converting it back to sound you can hear.
+
+ONELINER: The telephone
+
+OTHER CONNECTIONS: None
+
+BIBLIOGRAPHY:
+http://www.ideafinder.com/history/inventions/story078.htm
+http://www.connected-earth.com/Journeys/Howitworks/Telephone/telephone.htm
+Encyclopedia Britannica
+
+Wikipedia
+Timeline of telephone
+AUDIO/VISUAL:
+http://memory.loc.gov/ammem/bellhtml/bellhome.html (sketches of Bell’s telephone)
+
+http://electronics.howstuffworks.com/telephone1.htm (basic components)
+
+http://electronics.howstuffworks.com/telephone-image.htm (Animation about the telephone network)

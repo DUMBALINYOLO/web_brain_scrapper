@@ -1,0 +1,11 @@
+AmpDETAILS/DESCRIPTION:
+The ampere (A or amp) is named in honor of eighteenth-century French physicist Andre-Marie Ampere* for his work with magnetism and electricity.
+Electric current is the movement of electric-charge carriers (such as charged particles) passing by attraction from one atom to another in the conducting material. In a wire, where the charge carriers are electrons, current is a measure of the quantity of charge passing any point of the wire in a given time.
+The amp is a measured unit of current, representing a flow of one coulomb of charge per second, or 6.2 × 1018 electrons per second, and which, if maintained in two straight infinitely-thin parallel conductors of infinite length, set one metre apart in a vacuum, would produce a force between the conductors of 2 × 10-7 newton per metre of length.
+
+ONELINER: The amp
+
+OTHER CONNECTIONS: None
+
+BIBLIOGRAPHY:
+EB

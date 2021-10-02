@@ -162,4 +162,5 @@ def get_images(driver):
 
     '''
    
-    pass
+    images = [src.get_attribute("src") for src in driver.find_elements_by_css_selector(".gwt-HTML img")]
+    return images

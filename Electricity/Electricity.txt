@@ -1,0 +1,31 @@
+ElectricityFull Name: Electricity
+ 
+Details:
+Electricity was first discovered in the seventeenth century by the amateur scientist and Mayor of Magdeburg, Germany, Otto von [discovered by] Guericke*.  
+ 
+The various forms of electricity all manifest the accumulation or movement of negatively-charged elementary particles named electrons. 
+ 
+Copper is a good conductor of electricity because copper atoms have a single electron in their outer electron shell (atoms have several of these electron shells) and the single electron on the outermost shell, not being strongly attached to the atom,  is easily moved  to the next atom.  This  movement constitutes ‘current.’ 
+ 
+If a copper wire coil is spun inside a field created by a set of magnets (as happens in an electricity generator),  the movement of the wire through the magnetic field causes all the single copper electrons to move in the same direction,  and this sets up an electric current in the wire. 
+ 
+Oneliner: Electricity
+ 
+Bibliography:
+ 
+Full Name: Electricity
+ 
+Details:
+Electricity was first discovered in the seventeenth century by the amateur scientist and Mayor of Magdeburg, Germany, Otto von [discovered by] Guericke*.  
+ 
+The various forms of electricity all manifest the accumulation or movement of negatively-charged elementary particles named electrons. 
+ 
+Copper is a good conductor of electricity because copper atoms have a single electron in their outer electron shell (atoms have several of these electron shells) and the single electron on the outermost shell, not being strongly attached to the atom,  is easily moved  to the next atom.  This  movement constitutes ‘current.’ 
+ 
+If a copper wire coil is spun inside a field created by a set of magnets (as happens in an electricity generator),  the movement of the wire through the magnetic field causes all the single copper electrons to move in the same direction,  and this sets up an electric current in the wire. 
+ 
+Oneliner: Electricity
+ 
+Bibliography:
+Encyclopedia Britannica.
+Electricity and Electronics, Internet Learning Resources,  atschool.eduweb.co.uk/trinity/elec2.html.
