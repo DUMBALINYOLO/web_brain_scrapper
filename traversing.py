@@ -1,3 +1,4 @@
+import sys
 import time
 import re
 from selenium.webdriver.common.keys import Keys
@@ -12,7 +13,9 @@ from user_inputs import (
     get_user_choice,
 )
 from thought_generation import (
-    get_listed_description
+    get_source_links,
+    get_description_one,
+    get_description_two,
 )
 from file_handling import (
     create_file,
@@ -114,17 +117,20 @@ def randomly_traverse(driver):
         THIS IS WHERE ALL EVERYTHING THAT HAS TO DO WITH RANDOM SCRAPPING HAPPENS
         <li class="clickItem">Wander</li>
     '''
-    while True:
-        element = driver.find_element_by_xpath('//li[contains(text(), "' + 'Wander' + '")]')
-        driver.execute_script("arguments[0].click();", element)
-        try:
-            element = WebDriverWait(driver, 10).until(
-                EC.presence_of_element_located((By.ID, "myDynamicElement"))
-            )
-        except:
-            print('')
-    else:
-        print('Your time for randomly scrapping over Web Brain Website has lapsed')
+    element = driver.find_element_by_xpath('//li[contains(text(), "' + 'Wander' + '")]')
+    driver.execute_script("arguments[0].click();", element)
+    try:
+        element = WebDriverWait(driver, 5).until(
+            EC.presence_of_element_located((By.ID, "myDynamicElement"))
+        )
+    except:
+        print('')
+    for i in range(50):
+        time.sleep(5)
+        thoughts = [tag.text for tag in driver.find_elements_by_class_name('thought')]
+        cleaned_nodes = deduplicate_and_clean_root_nodes(thoughts)
+        print(cleaned_nodes)
+    
 
 
 
@@ -215,13 +221,18 @@ def get_first_generation_node_children(driver):
 def scrape_and_save(driver, choice):
     print('Scrapping and Saving started ...')
     time.sleep(2)
-    thought_detail = get_listed_description(driver)
-    print(thought_detail)
+    links = get_source_links(driver)
+    description_one = get_description_one(driver)
+    description_two = get_description_two(driver)
     node = dewhitespacify(choice)
     x = create_file(node)
     file = open(x, 'a')
-    for items in  thought_detail:
+    for items in links:
         file.writelines(items+'\n')
+    for items in description_one:
+        file.writelines(items+'\n')
+    for items in description_two:
+        file.writelines(items+'\n')  
     file.close()
     print('Scrapping Ended ...')
 

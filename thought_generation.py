@@ -5,15 +5,15 @@ def make_new_thought():
         We will first return a python dict then clean it into a .txt file
     '''
     return {
-        'get_proffessional_links' : None,
+        # 'get_proffessional_links' : None,
         'get_source_links': None,
-        'get_profile_details': None,
-        'get_image': None,
-        'get_description': None,
-        'get_link': None,
-        'get_listed_description': None,
-        'get_images': None,
-        'get_bibliography': None,
+        # 'get_profile_details': None,
+        # 'get_image': None,
+        'get_description_one': None,
+        'get_description_two': None,
+        # 'get_listed_description': None,
+        # 'get_images': None,
+        # 'get_bibliography': None,
         
     }
 
@@ -33,33 +33,14 @@ def get_thought_body(driver):
 
 
     methods = [
-        get_proffessional_links,
-        get_source_links,
-        get_profile_details,
-        get_image,
-        get_description,
-        get_link, 
-        get_listed_description,
-        get_images,
-        get_bibliography,
+        get_source_links(driver),
+        get_description_one(driver),
+        get_description_two(driver),
 
     ]
 
-    thought = make_new_thought()
+    return methods
 
-    thought = thought
-
-    for method in methods:
-        try:
-            partial_thought = method(soup)
-            if partial_thought is None:
-                print("Extract method %s didn't return anything", method.__name__)
-                continue
-            thought.update(partial_thought)
-        except Exception as ex:
-            print("")
-    return thought
-    
 
 
 
@@ -80,6 +61,9 @@ def get_source_links(driver):
     '''
     
     '''
+    links = [link.get_attribute("href") for link in driver.find_elements_by_css_selector(".gwt-HTML a")]
+    return links
+
 
 
 
@@ -111,7 +95,27 @@ def get_link(driver):
     pass
 
 
-def get_listed_description(driver):
+def get_description_one(driver):
+    '''
+        Some Descriptions seem to be stored in <div class='gwt-HTML'>
+                                                    <p class='MsoNormal'>
+                                                        <b>....</b>
+                                                    </p>
+                                                </div>
+        gwt-HTML.MsoNormal.
+    '''
+    # description = [tag.text for tag in driver.find_elements_by_class_name('MsoNormal')]
+    # if description is not None:
+    #     return description
+    # else:
+    # description = [tag.text for tag in driver.find_elements_by_class_name('gwt-HTML')]
+    description = [tag.text for tag in driver.find_elements_by_css_selector(".gwt-HTML p")]
+
+    return description
+
+
+
+def get_description_two(driver):
     '''
         Some Descriptions seem to be stored in <div class='gwt-HTML'>
                                                     <p class='MsoNormal'>
@@ -121,8 +125,8 @@ def get_listed_description(driver):
         gwt-HTML.MsoNormal.
     '''
     description = [tag.text for tag in driver.find_elements_by_class_name('MsoNormal')]
-
     return description
+
 
 
 
