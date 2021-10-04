@@ -24,7 +24,7 @@ elements = WebDriverWait(driver, 5).until(EC.visibility_of_all_elements_located(
 (3) I am two days away from wrapping up
 (4) The project has been split into files so as to avoid the main file being too big to
     write
-(5) The is a need to do so much parsing of different text containers as the site is not 
+(5) The is a need to do so much parsing of different text containers as the site is not
     consisted on how the thought details are stored, we will have to handle returning none on some of them and capture those which matter. So we shall sample more than 20 different
     scenarios and handle them in a manner where there are small chances of the program
     hitting a brickwall
@@ -37,8 +37,9 @@ elements = WebDriverWait(driver, 5).until(EC.visibility_of_all_elements_located(
 
 (9) The subfolders belong to the scrapped first_generation_grand_children
 
-(10) Those with an empty .txt file is an indication that information is stored in different 
+(10) Those with an empty .txt file is an indication that information is stored in different
       boxes and we should go deeper and at least figure out all these mysterious boxes
-      
+
 (11) Some of these links are just empty as thoughts and they are just there to lead one to somewhere
 
+(12) Python Dictionaries are going to come in hand as I would want to utilise a breadth-first-search (the loop/non-recursive version) to create an autopilot scrapper that keep relations
