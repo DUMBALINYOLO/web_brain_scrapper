@@ -1,7 +1,7 @@
 # web_brain_scrapper
 Scrapping Web Brain using python
 
-This code is still 1/3 away from being finished.
+This code is still 2/3 away from being finished.
 Still more to come as the next steps have to do with livening up the selenium robotic process
 and at least try to mess with manipulating those tree nodes and then write the scrapped data
 to the files. requests-html was tested in the curiosity of the selenium versus puppeteer debacle
@@ -43,3 +43,5 @@ elements = WebDriverWait(driver, 5).until(EC.visibility_of_all_elements_located(
 (11) Some of these links are just empty as thoughts and they are just there to lead one to somewhere
 
 (12) Python Dictionaries are going to come in hand as I would want to utilise a breadth-first-search (the loop/non-recursive version) to create an autopilot scrapper that keep relations
+
+(13) Still buggy as its an ongoingprjects 
